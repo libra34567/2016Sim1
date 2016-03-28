@@ -1,0 +1,43 @@
+ass 30%
+lab 10%
+final 60%
+
+ass1 : due week6
+ass2 : due week12
+
+ssh & scp
+ssh: 
+Symetric对称 key cryptography
+Same key used for encryption and decrption
+
+
+Diffie-Hellman-Merkle key exchange scheme:
+Both side know the number 5 and 7. Both think up random number 
+3 and 4
+5^4(mod 7) = !2		5^3(mod 7) = !6
+!6^4(mod 7) = 1		!2^4(mod 7)  =1
+
+since a^x(mod b) is easy to calculate but hard to invert it's hard for others to work out the key
+
+
+
+Asymmetric key cryptography, two key are used, one for encryption one for decryption
+
+Password authentication:
+Pro: simple, no need to store keys so you can login from different clients. 
+they generally have password when they obtain an account
+
+Con:
+Forget pwd
+people use same pwd for different system
+pwd can be guessed
+
+Public key authentication:
+Provide you 2 factors, passphrase and encrypted private key. 
+Weakness: Server can't check that strong passphrase are used. 
+if someone able to alter the authorized key file then they could include an extra key which may not be detected. 
+
+
+authorized keys:
+p11
+

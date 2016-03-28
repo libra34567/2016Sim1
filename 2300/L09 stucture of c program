@@ -1,0 +1,30 @@
+includes:
+can be though of simply copying the content of a header file into your source code. They won't generate code, instead tey provide prototpes, struct, constants, and names for global var. 
+
+#include <stdio.h> system header
+#include "myHeader.h" local header. 
+
+Prototype:
+provide the signature of the function you will use, 
+Prototype e.g.
+int add(int a, int b);
+
+global var:
+define outside of function. 
+
+Constant #define, macro
+#define LOOPCOUNT 10
+
+
+functions:
+int add(int a, int b){
+	int sum;
+	return sum;
+}
+
+main:
+int main(int argc, char *argc[]){
+	
+}
+
+
