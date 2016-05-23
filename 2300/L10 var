@@ -1,3 +1,16 @@
 The var
 
-Scope
+Scope:
+Var defeind within block are local and initialized every time block is executed. 
+Var defined~~~ but with static are only init once and are permanent. 
+
+Var define outside of a block are global and permanent. (the
+static keyword reduces the scope to the file it is within).
+
+int iam_global;
+static int iam_global_with_reduced_scope;
+int function() {
+ int iam_local_to_this_function;
+ static int also_local_but_permanent;
+}
+

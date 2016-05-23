@@ -1,0 +1,46 @@
+Q1: What memory address does the trap instruction take you to?
+
+0x0002
+
+
+
+
+1 mark]: Where does the rPeANUt program counter (PC) reset to?	 A
+A) 100
+B) 0x0000
+C) 0x1000
+D) 0x1234
+E) 0x0100
+
+
+Q2 [1 mark]: Which of the following is not a real store addressing mode?	
+A) Base+displacement store
+B) Indirect store
+C) Immediate store
+D) Absolute store
+
+Q3 [1 mark]: The reverse polish expression
+2 w * 8 + is the expression (in standard form):
+A) (2 * w) + 8 
+B) 2 * (w + 8)
+C) (8 * 2) + w
+D) 8 * (2 + w)
+
+
+Q4 [1 mark]: An interrupt handler routine will generally use the ________ to store the values of registers that it uses. The routine should return the registers to an _________ state to that of what they were when the interrupt occurred.	A) stack, different
+B) stack, identical
+C) heap, similar
+D) heap, different
+
+
+Q5 [6 marks]: Write an rPeANUt program which prints the string "Hello World" to the terminal using a loop and reading from a block of data.
+
+
+
+Q1 [1 mark]: How would you get the address of the label "string:" into the register R0?	A) load string R0
+B) store string R0
+C) load #string R0
+D) load R0 string
+E) store R0 #string
+
+

@@ -1,0 +1,194 @@
+Block???
+Stack???
+0x5000???
+
+Week 7
+
+L23
+CPU:
+8 R0~R7
+3 constant: ONE, ZERO, MONE
+IR: instruction register, holds teh current instruction being executed. 
+SR: Status register, status information about CPU.   bit0: OF Interger overflow
+bit1: IM Interrupt mask
+bit2: TI timer interrupt
+
+Stack???
+SP: stack pointer, points to the top of the stack, is used for method calls, method return, and interrupts. 
+PC/Instruct pointer: Program counter, address of the next instruct to execute
+
+ALU: arithmetic logic unit, which does 2-complment interger arithmetic and bitwise logic computations. 
+
+
+
+Control unit sequence the movement of data aroudn cpu
+e.g.
+do {
+	IR = mem[PC]; //save in CPU
+	PC = PC+1; //next pointer
+	execute_instruction in IR
+	check for interrupts;
+} while(!half);
+
+
+
+
+4 loarding to register 3 storing from register
+//Loading
+Immediate load:
+Stores value into a register.
+	load #42 R5 ==> 0xc005002a
+
+Absolute load:
+This takes the address in the operand and loads the word at this address in main memory into a register.
+	load 0x5000 R4 
+
+Indirect load:
+this takes the address in a given register and loads the word at this register's address in main memory into a
+register.
+
+base+displacement load:
+this adds a value from the operand to a register to give an address, which is used as the address to load from
+
+Label:
+If we have a label at a particular address we can use the label rather than the hex value 
+"block" assembler directive tells the compiler to leave a block (in this case 1 word) of memory 
+	xvar: block 1
+	;int xvar;
+
+//load data to register
+	load xvar R4
+
+
+//Storing
+absolute store:
+This takes the address in the operand(pos2) and stores the register value at this address in main memory.
+stores the contents of register R3 into address 0x5000.
+store R3 0x5000
+
+Indirect store:
+This takes the address in a given register and stores the source value (also in a register) at the given register's
+address in main memory.
+
+base+displacement store: 
+This adds a value from the operand to a register to give the address. This address is used to store the
+sources register value
+
+
+//e.g.
+;int x, y
+;x = 10
+;y = x
+
+xvar : block 1
+yvar : block 1
+load #10 R0
+store R0 xvar
+load xvar R1
+store R1 yvar
+
+
+//bit operation
+The below code sets bit 2 at address 0x5000 to 1.
+ load 0x5000 R1
+ load #0x0004 R2
+ or R1 R2 R1
+ store R1 0x5000
+
+
+IO:
+;print('H') to terminal
+load #'H' R1
+store R1 0xFFF0
+
+
+
+
+//jump
+jump - unconditional jump
+jumpn - jump if negative
+jumpz - jump if zero
+jumpnz - jump if not zero
+
+		load #0 R0 ; int count = 0
+		load #10 R1
+count : sub R0 R1 R2 ; while (count != 0) {
+ 		jumpz R2 done
+ 		add ONE R0 R0 : count++;
+ 		jump count ; }
+done :
+
+
+IO:
+Write to terminal
+0x0100 : load #'a' R3
+ store R3 0xfff0
+
+Read:
+This can be done by checking address 0xfff1. Once available the character can be read from the IO data register (address 0xfff0).
+readc : load 0xfff1 R0
+		jumpz R0 readc  ;if not ready, it 0xfff1 will be zero. 
+ 		load 0xfff0 R1
+
+
+
+
+Week 8
+
+Stack:
+push <reg> - places the registers value on the top of the stack (this increases the stack pointer).
+
+pop <reg> - removes the word from the top of the stack and place the value into the register (decreases the stack pointer).
+
+
+//indexing
+load SP #<off> <reg> - you can also use the base plus displacement load to obtain values on the stack (will not change
+the stack pointer).
+
+//indexing
+store <reg> #<off> SP - this will let you change values on the stack.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+!!! 3 store veriosn, 4 load version. 
+1. load 0xFFF0 R0
+load from terminal, first char into R0
+2. store R0 0x3000
+store value from R0 to 0x3000
+3. store R0 R1  
+store value in R0 to R1
+4. store #'A' 0xFFF0
+print A to terminal
+5. store #'1' 0xFFF0, store #1 0xFFF0
+print char 1 to terminal,  print asscci value for 1
+
+
+pixel 1, left most ???
+
+lab 6
+1. D
+2. c
+3. D
+4. C
+5. A
+6. A
+7. D
+8. return address
+9. 4096
+10.
+
+
+
+
+

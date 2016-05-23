@@ -1,0 +1,58 @@
+L23
+CPU:
+8 R0~R7
+3 constant: ONE, ZERO, MONE
+IR: instruction register, holds teh current instruction being executed. 
+SR: Status register, status information about CPU.   bit0: OF Interger overflow
+bit1: IM Interrupt mask
+bit2: TI timer interrupt
+
+Stack???
+SP: stack pointer, points to the top of the stack, is used for method calls, method return, and interrupts. 
+PC/Instruct pointer: Program counter, address of the next instruct to execute
+
+ALU: arithmetic logic unit, which does 2-complment interger arithmetic and bitwise logic computations. 
+
+
+
+Control unit sequence the movement of data aroudn cpu
+e.g.
+do {
+	IR = mem[PC]; //save in CPU
+	PC = PC+1; //next pointer
+	execute_instruction in IR
+	check for interrupts;
+} while(!half);
+
+
+!!! 3 store veriosn, 4 load version. 
+1. load 0xFFF0 R0
+load from terminal, first char into R0
+2. store R0 0x3000
+store value from R0 to 0x3000
+3. store R0 R1  
+store value in R0 to R1
+4. store #'A' 0xFFF0
+print A to terminal
+5. store #'1' 0xFFF0, store #1 0xFFF0
+print char 1 to terminal,  print asscci value for 1
+
+
+pixel 1, left most ???
+
+lab 6
+1. D
+2. c
+3. D
+4. C
+5. A
+6. A
+7. D
+8. return address
+9. 4096
+10.
+
+
+
+
+

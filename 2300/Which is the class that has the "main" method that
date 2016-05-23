@@ -1,0 +1,29 @@
+Which is the class that has the "main" method that rPeANUt is run from?
+Peanut
+
+Which class holds the state of the simulated computer (the memory, register, program counter, etc.)?
+
+Memory, sim
+
+Which class has the code that assembles the program (takes the text of the program, generates the machine code and sets the memory for that program)?To work this out you may wish to follow the "Assemble" button, and see what code is executed when assemble is pressed.
+
+Assemble
+
+Which class is responsible for simulating the instructions?
+
+??
+SImualte
+
+How would your describe the design approach? (just a 1 or 2 sentence summary is expected)
+
+Modular approah, with a simple top-down division of classes. The odel -view -control are not separated. 
+
+
+Which class is responsible for displaying the register's values (this is the list on the right of the window)?
+
+Simulate, register
+
+
+
+How does this class for displaying a register value work? The register values are just 32 bit integers and they are displayed in their hex form, how is this achieved?
+
